@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
+#include "Utils.h"
 
-using std::string;
+
 
 const string MAIN_INTRODUCTION = "Welcome to text-based experience called...";
 
@@ -20,3 +21,15 @@ ___  __        __                   ___      ___
 
 )""""; 
 const string COMMAND_ENTER = "Press [ENTER] to continue.";
+const string ENTER_NAME = "Please enter your player name and then press [ENTER].";
+const string NAME_CONFIRM = "Nice to see you, ";
+const string HAVE_NICE_GAME = "Have a nice game!";
+const char* MAIN_MENU = R""""(
+Please enter proper character to make a valid selection:
+[ E ] = Enter the stage.
+[ R ] = Review your team.
+[ H ] = Check highscores.
+[ L ] = Load game.
+[ S ] = Save game.
+[ X ] = Exit game without saving.
+)"""";
