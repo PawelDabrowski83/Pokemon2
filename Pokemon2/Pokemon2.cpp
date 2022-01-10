@@ -33,7 +33,7 @@ int main()
     int teamCreatures = 0;
     char input;
     
-    while (selectStep) {
+    while (!selectStep) {
         cout << SELECTION_MENU << endl;
         cout << YOUR_TEAM_NUMBER << teamCreatures << endl;
         cin >> input;
@@ -56,20 +56,25 @@ int main()
         */
         switch (input) {
             case 'R':
+                clearScreen();
                 cout << SELECT_REVIEW << endl;
                 break;
             case 'M':
+                clearScreen();
                 cout << SELECT_MANAGE << endl;
                 break;
             case 'G':
+                clearScreen();
                 cout << SELECT_GENERATE << endl;
                 teamCreatures = 6;
                 break;
             case 'C':
+                clearScreen();
                 cout << SELECT_CONTINUE << endl;
                 selectStep = true;
                 break;
-            case 'X':
+            case 'E':
+                clearScreen();
                 cout << EXIT_MSG << endl;
                 return EXIT_SUCCESS;
             default:
