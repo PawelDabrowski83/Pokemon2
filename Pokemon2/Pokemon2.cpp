@@ -24,10 +24,28 @@ int main()
     cout << NAME_CONFIRM << playerName << endl;
     cout << HAVE_NICE_GAME << endl;
     pressEnterAndClear();
-    cout << playerName << endl;
 
     /*
         TEAM SELECTION
     */
+    cout << playerName << X_TIME_TO_CREATE_TEAM << endl;
+    bool selectStep = false;
+    int teamCreatures = 0;
+    string input;
+    while (selectStep) {
+        cout << SELECTION_MENU << endl;
+        cout << YOUR_TEAM_NUMBER << teamCreatures << endl;
+        cin >> input;
+        while ( input != "R" and 
+                input != "M" and 
+                input != "G" and
+                input != "C" and 
+                input != "E") {
+            cout << ENTER_VALID_COMMAND << endl;
+            cout << SELECTION_MENU << endl;
+            cin >> input;
+        }
+
+    }
 }
 

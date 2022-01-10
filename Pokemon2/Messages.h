@@ -33,3 +33,21 @@ Please enter proper character to make a valid selection:
 [ S ] = Save game.
 [ X ] = Exit game without saving.
 )"""";
+
+const string X_TIME_TO_CREATE_TEAM = ", it is time to build your team!";
+const char* SELECTION_MENU = R""""(
+TEAM SELECTION:
+Use controls to review available creatures and add them to your team. 
+Your team need 6 creatures.
+
+[ R ] = Review available creatures.
+[ M ] = Manage your team.
+[ G ] = Choose your team at random.
+[ C ] = End selection step and continue.
+[ E ] = Exit without saving.
+)"""";
+const string YOUR_TEAM_NUMBER = "Number of creatures in your team: ";
+const string SELECT_REVIEW = "Review available creatures.";
+const string SELECT_MANAGE = "Manage your team.";
+
+const string ENTER_VALID_COMMAND = "Please enter valid command.";
