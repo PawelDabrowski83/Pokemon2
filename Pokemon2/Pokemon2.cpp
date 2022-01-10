@@ -31,21 +31,51 @@ int main()
     cout << playerName << X_TIME_TO_CREATE_TEAM << endl;
     bool selectStep = false;
     int teamCreatures = 0;
-    string input;
+    char input;
+    
     while (selectStep) {
         cout << SELECTION_MENU << endl;
         cout << YOUR_TEAM_NUMBER << teamCreatures << endl;
         cin >> input;
-        while ( input != "R" and 
-                input != "M" and 
-                input != "G" and
-                input != "C" and 
-                input != "E") {
+        
+        /*
+            Invalid input loop.
+        */
+        while ( input != 'R' and 
+                input != 'M' and 
+                input != 'G' and
+                input != 'C' and 
+                input != 'E') {
             cout << ENTER_VALID_COMMAND << endl;
             cout << SELECTION_MENU << endl;
             cin >> input;
         }
 
+        /*
+            Execution of Select commands.
+        */
+        switch (input) {
+            case 'R':
+                cout << SELECT_REVIEW << endl;
+                break;
+            case 'M':
+                cout << SELECT_MANAGE << endl;
+                break;
+            case 'G':
+                cout << SELECT_GENERATE << endl;
+                teamCreatures = 6;
+                break;
+            case 'C':
+                cout << SELECT_CONTINUE << endl;
+                selectStep = true;
+                break;
+            case 'X':
+                cout << EXIT_MSG << endl;
+                return EXIT_SUCCESS;
+            default:
+                break;
+                // nie powinno się zdarzyć
+        }
     }
 }
 
