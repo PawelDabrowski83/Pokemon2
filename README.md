@@ -23,3 +23,5 @@ Basic creature definition:
  1. Id 
  2. Name 
  3. Element
+
+Attack formula
