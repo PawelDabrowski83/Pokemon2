@@ -99,13 +99,13 @@ int main()
                 cout << GAME_MENU << endl;
                 input = readChar();
                 // check for invalid input
-                while (input != 'E' and
-                    input != 'R' and
-                    input != 'H' and
-                    input != 'D' and
-                    input != 'L' and
-                    input != 'S' and
-                    input != 'Z') {
+                while ( input != 'E' and
+                        input != 'R' and
+                        input != 'H' and
+                        input != 'D' and
+                        input != 'L' and
+                        input != 'S' and
+                        input != 'X') {
                     cout << ENTER_VALID_COMMAND << endl;
                     cout << GAME_MENU << endl;
                     input = readChar();
@@ -113,23 +113,30 @@ int main()
 
                 // GAME options
                 switch (input) {
+                case 'E':
+                    clearScreen();
+                    cout << GAME_ENTER_STAGE << endl;
+                    actionFilled = true;
+                    break;
                 case 'R':
                     clearScreen();
-                    cout << SELECT_REVIEW << endl;
+                    cout << GAME_REVIEW << endl;
                     break;
-                case 'M':
+                case 'H':
                     clearScreen();
-                    cout << SELECT_MANAGE << endl;
+                    cout << GAME_HIGHSCORES << endl;
                     break;
-                case 'G':
+                case 'D':
                     clearScreen();
-                    cout << SELECT_GENERATE << endl;
-                    teamCreatures = 6;
+                    cout << GAME_DESCRIPTION << endl;
                     break;
-                case 'C':
+                case 'L':
                     clearScreen();
-                    cout << SELECT_CONTINUE << endl;
-                    selectStep = true;
+                    cout << GAME_LOAD << endl;
+                    break;
+                case 'S':
+                    clearScreen();
+                    cout << GAME_SAVE << endl;
                     break;
                 case 'X':
                     clearScreen();
@@ -139,13 +146,15 @@ int main()
                     break;
                     // nie powinno się zdarzyć
                 }
-
-
-
-
             }
+            cout << OPPONENT_INFO << OPPONENT_NAME_PLACEHOLDER << endl;
+            cout << FIGHT_VICTORY << endl;
+            gameRoundFinished = true;
+            gameRound++;
         }
     }
+
+    cout << WINNING << endl;
 
 }
 
