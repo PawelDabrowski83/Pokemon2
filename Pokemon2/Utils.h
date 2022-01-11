@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <vector>
 
+#include "EnumElements.h"
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -22,3 +24,6 @@ void emptyLine();
 void emptyLine(int);
 string getRandom(vector<string>);
 int getRandomFrom(int, int);
+EnumElement getRandomElement();
+string getElementTxt(EnumElement);
+string getRandomElementTxt();

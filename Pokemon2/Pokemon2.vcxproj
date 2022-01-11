@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="EnumElements.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

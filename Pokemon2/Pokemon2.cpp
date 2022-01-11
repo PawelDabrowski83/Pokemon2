@@ -2,7 +2,9 @@
 #include <windows.h>
 
 #include "Messages.h"
+#include "Config.h"
 #include "Utils.h"
+
 
 
 int main()
@@ -57,7 +59,7 @@ int main()
                 cout << SELECT_REVIEW << endl;
                 cout << "Random from 1 to 6 is: " << endl;
                 for (int i = 0; i < 10; i++) {
-                    cout << getRandomFrom(1, 6) << endl;
+                    cout << getRandomElementTxt() << endl;
                 }
                 break;
             case 'M':

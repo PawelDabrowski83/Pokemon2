@@ -48,6 +48,18 @@ int getRandomFrom(int fromRange, int toRange) {
 }
 
 string getRandom(vector<string> list) {
-    int random = rand() % 500;
-    return "";
+    int random = rand() % list.size();
+    return list[random];
+}
+
+EnumElement getRandomElement() {
+    return EnumElement(rand() % 6);
+}
+
+string getElementTxt(EnumElement e) {
+    return toString(e);
+}
+
+string getRandomElementTxt() {
+    return getElementTxt(getRandomElement());
 }
