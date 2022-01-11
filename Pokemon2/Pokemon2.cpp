@@ -36,7 +36,7 @@ int main()
     while (!selectStep) {
         cout << SELECTION_MENU << endl;
         cout << YOUR_TEAM_NUMBER << teamCreatures << endl;
-        cin >> input;
+        input = readChar();
         
         /*
             Invalid input loop.
@@ -48,7 +48,7 @@ int main()
                 input != 'E') {
             cout << ENTER_VALID_COMMAND << endl;
             cout << SELECTION_MENU << endl;
-            cin >> input;
+            input = readChar();
         }
 
         /*

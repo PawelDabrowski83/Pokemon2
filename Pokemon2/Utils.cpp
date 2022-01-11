@@ -1,5 +1,3 @@
-#include <iostream>
-#include <windows.h>
 #include "Utils.h"
 
 using std::cin;
@@ -29,4 +27,10 @@ void clearScreen() {
 void pressEnterAndClear() {
     pressEnter();
     clearScreen();
+}
+
+char readChar() {
+    char c;
+    cin >> c;
+    return toupper(c);
 }
