@@ -38,9 +38,7 @@ int main()
         cout << YOUR_TEAM_NUMBER << teamCreatures << endl;
         input = readChar();
         
-        /*
-            Invalid input loop.
-        */
+        //  Invalid input loop.
         while ( input != 'R' and 
                 input != 'M' and 
                 input != 'G' and
@@ -51,9 +49,7 @@ int main()
             input = readChar();
         }
 
-        /*
-            Execution of Select commands.
-        */
+        // SELECT options
         switch (input) {
             case 'R':
                 clearScreen();
@@ -89,8 +85,67 @@ int main()
     clearScreen();
     cout << START_TOURNAMENT << endl;
     pressEnter();
+    
     int gameRound = 0;
     int defeatedOpponents = 0;
+
+    gameRound++;
+    while (gameRound <= 4) {
+        bool gameRoundFinished = false;
+        while (!gameRoundFinished) {
+            bool actionFilled = false;
+            while (!actionFilled) {
+                cout << GAME_ROUND << gameRound << endl;
+                cout << GAME_MENU << endl;
+                input = readChar();
+                // check for invalid input
+                while (input != 'E' and
+                    input != 'R' and
+                    input != 'H' and
+                    input != 'D' and
+                    input != 'L' and
+                    input != 'S' and
+                    input != 'Z') {
+                    cout << ENTER_VALID_COMMAND << endl;
+                    cout << GAME_MENU << endl;
+                    input = readChar();
+                }
+
+                // GAME options
+                switch (input) {
+                case 'R':
+                    clearScreen();
+                    cout << SELECT_REVIEW << endl;
+                    break;
+                case 'M':
+                    clearScreen();
+                    cout << SELECT_MANAGE << endl;
+                    break;
+                case 'G':
+                    clearScreen();
+                    cout << SELECT_GENERATE << endl;
+                    teamCreatures = 6;
+                    break;
+                case 'C':
+                    clearScreen();
+                    cout << SELECT_CONTINUE << endl;
+                    selectStep = true;
+                    break;
+                case 'X':
+                    clearScreen();
+                    cout << EXIT_MSG << endl;
+                    return EXIT_SUCCESS;
+                default:
+                    break;
+                    // nie powinno się zdarzyć
+                }
+
+
+
+
+            }
+        }
+    }
 
 }
 

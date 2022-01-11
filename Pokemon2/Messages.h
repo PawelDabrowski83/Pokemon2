@@ -68,7 +68,18 @@ Remember that only one creature will get xp points for defeating the opponent.
 )"""";
 
 const string GAME_ROUND = "Game round number: ";
+const string GAME_ENTER_STAGE = "Enter the stage and fight!";
+const string GAME_REVIEW = SELECT_REVIEW;
+const string GAME_HIGHSCORES = "Visit the Hall of Champions.";
+const string GAME_DESCRIPTION = "Read the lore.";
+const string GAME_LOAD = "Load game.";
+const string GAME_SAVE = "Save game.";
+const string GAME_EXIT = EXIT_MSG;
+
+
 const string OPPONENT_INFO = "A wild opponent appears. It is: ";
 const string OPPONENT_NAME_PLACEHOLDER = "Oppomon!";
+
+
 
 const string WINNING = "Grats! You have won and now you are joining Grand Tournament's Hall of Champions.";
