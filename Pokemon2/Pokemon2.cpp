@@ -65,8 +65,13 @@ int main()
                 cout << SELECT_REVIEW << endl;
                 cout << "Random from 1 to 6 is: " << endl;
                 for (int i = 0; i < 10; i++) {
-                    CREAT_UNIVERSE.push_back(Creature{});
-                    cout << "id=" << CREAT_UNIVERSE[i].getId() << endl;
+                    DummyCreature currentCreature = DummyCreature{ getRandomElement() };
+                    CREAT_UNIVERSE.push_back(currentCreature);
+                    cout << "id = " << currentCreature.getId() << endl;
+                    cout << "elem = " << getElementTxt(currentCreature.getType()) << endl;
+                    cout << "name = " << currentCreature.getName() << endl;
+                    cout << HORIZONTAL_LINE << endl;
+                    pressEnter();
                 }
                 break;
             case 'M':

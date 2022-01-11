@@ -3,7 +3,7 @@
 #include <string>
 
 
-
+const string HORIZONTAL_LINE = "===================================================================";
 const string MAIN_INTRODUCTION = "Welcome to text-based experience called...";
 
 /*
