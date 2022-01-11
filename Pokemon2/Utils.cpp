@@ -98,3 +98,7 @@ string rtrim(const string& s) {
 string trim(const string& s) {
     return ltrim(rtrim(s));
 }
+
+Creature createCreature() {
+    return Creature();
+}

@@ -8,6 +8,7 @@
 
 #include "EnumElements.h"
 #include "Config.h"
+#include "Creature.h"
 
 using std::cout;
 using std::cin;
@@ -35,3 +36,4 @@ string getNameFor(EnumElement);
 string ltrim(const string&);
 string rtrim(const string&);
 string trim(const string&);
+Creature createCreature();

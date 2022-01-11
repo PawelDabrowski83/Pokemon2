@@ -9,6 +9,10 @@
 
 int main()
 {
+    vector<Creature> CREAT_UNIVERSE{};
+
+
+
     /*
         WELCOME STEP
     */
@@ -59,7 +63,8 @@ int main()
                 cout << SELECT_REVIEW << endl;
                 cout << "Random from 1 to 6 is: " << endl;
                 for (int i = 0; i < 10; i++) {
-                    cout << getNameFor(getRandomElement()) << endl;
+                    CREAT_UNIVERSE.push_back(createCreature());
+                    cout << "id=" << CREAT_UNIVERSE[i].getId() << endl;
                 }
                 break;
             case 'M':

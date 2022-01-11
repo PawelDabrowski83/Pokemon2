@@ -1,8 +1,10 @@
 #pragma once
 #include "Utils.h"
+#include "Creature.h"
 
 using std::vector;
 using std::string;
+
 
 const vector<string> CREAT_SPECIES{ "Bird", "Fly", "Dog", "Tiger", "Snake", "Turtle", "Minion", "Creature", "Imp", "Eye", "Predator", "Prime", "Smile", "Serpent"};
 const vector<string> CREAT_DESCRIPTIONS = { "Killer", "Ultra", "Enhanced", "Cyber", "Pro", "Master", "Vicious", "Robot", "Poison"};
