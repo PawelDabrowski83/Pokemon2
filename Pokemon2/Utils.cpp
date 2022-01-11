@@ -63,3 +63,25 @@ string getElementTxt(EnumElement e) {
 string getRandomElementTxt() {
     return getElementTxt(getRandomElement());
 }
+
+string getNameFor(EnumElement e) {
+    int random = getRandomFrom(0, 999);
+    string name;
+    if (random < 100) {
+        name = getRandom(CREAT_DESCRIPTIONS);
+    }
+    if (random < 600) {
+        vector<string> list;
+        switch (e) {
+        case FIRE:  list = CREAT_FIRE_NAMES;    break;
+        case WATER: list = CREAT_WATER_NAMES;   break;
+        case AIR:   list = CREAT_AIR_NAMES;     break;
+        case EARTH: list = CREAT_EARTH_NAMES;   break;
+        case ICE:   list = CREAT_ICE_NAMES;     break;
+        case STEEL: list = CREAT_STEEL_NAMES;   break;
+        default:                                break;
+        };
+        name = name + " " + getRandom(list);
+    }
+    return name + " " + getRandom(CREAT_SPECIES);
+}

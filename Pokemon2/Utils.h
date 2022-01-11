@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "EnumElements.h"
+#include "Config.h"
 
 using std::cout;
 using std::cin;
@@ -27,3 +28,4 @@ int getRandomFrom(int, int);
 EnumElement getRandomElement();
 string getElementTxt(EnumElement);
 string getRandomElementTxt();
+string getNameFor(EnumElement);

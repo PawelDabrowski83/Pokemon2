@@ -59,7 +59,7 @@ int main()
                 cout << SELECT_REVIEW << endl;
                 cout << "Random from 1 to 6 is: " << endl;
                 for (int i = 0; i < 10; i++) {
-                    cout << getRandomElementTxt() << endl;
+                    cout << getNameFor(getRandomElement()) << endl;
                 }
                 break;
             case 'M':
