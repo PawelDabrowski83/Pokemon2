@@ -10,6 +10,7 @@ enum EnumElement
 	STEEL
 };
 
+// toString txt to: https://stackoverflow.com/a/5094430/13521548
 inline const char* toString(EnumElement v)
 {
     switch (v)
