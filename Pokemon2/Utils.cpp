@@ -70,7 +70,7 @@ string getNameFor(EnumElement e) {
     if (random < 100) {
         name = getRandom(CREAT_DESCRIPTIONS);
     }
-    if (random < 600) {
+    if (random < 910) {
         vector<string> list;
         switch (e) {
         case FIRE:  list = CREAT_FIRE_NAMES;    break;
@@ -83,5 +83,18 @@ string getNameFor(EnumElement e) {
         };
         name = name + " " + getRandom(list);
     }
-    return name + " " + getRandom(CREAT_SPECIES);
+    return trim(name + " " + getRandom(CREAT_SPECIES));
+}
+
+// trim from: https://www.techiedelight.com/trim-string-cpp-remove-leading-trailing-spaces/
+string ltrim(const string& s) {
+    return regex_replace(s, regex("^\\s+"), string(""));
+}
+
+string rtrim(const string& s) {
+    return regex_replace(s, regex("\\s+$"), string(""));
+}
+
+string trim(const string& s) {
+    return ltrim(rtrim(s));
 }

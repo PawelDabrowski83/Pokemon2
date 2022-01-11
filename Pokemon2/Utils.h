@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <cstdlib>
 #include <vector>
+#include <regex>
 
 #include "EnumElements.h"
 #include "Config.h"
@@ -12,6 +13,8 @@ using std::cout;
 using std::cin;
 using std::endl;
 using std::rand;
+using std::regex;
+using std::regex_replace;
 using std::string;
 using std::toupper;
 using std::vector;
@@ -29,3 +32,6 @@ EnumElement getRandomElement();
 string getElementTxt(EnumElement);
 string getRandomElementTxt();
 string getNameFor(EnumElement);
+string ltrim(const string&);
+string rtrim(const string&);
+string trim(const string&);
