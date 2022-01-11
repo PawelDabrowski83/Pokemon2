@@ -1,14 +1,14 @@
 #pragma once
+#include "Creature.h"
+#include "EnumElements.h"
+#include "Config.h"
 #include <iostream>
+#include <string>
+#include <vector>
 #include <cctype>
 #include <windows.h>
 #include <cstdlib>
-#include <vector>
 #include <regex>
-
-#include "EnumElements.h"
-#include "Config.h"
-#include "Creature.h"
 
 using std::cout;
 using std::cin;
@@ -36,4 +36,4 @@ string getNameFor(EnumElement);
 string ltrim(const string&);
 string rtrim(const string&);
 string trim(const string&);
-Creature createCreature();
+

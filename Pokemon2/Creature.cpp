@@ -1,4 +1,7 @@
 #include "Creature.h"
+#include <string>
+
+using std::string;
 
 // Base class
 int Creature::count = 0;
@@ -13,7 +16,7 @@ int Creature::getId() const {
 	return id;
 };
 
-/*
+
 
 // First step class
 DummyCreature::DummyCreature(const EnumElement& type) {
@@ -36,4 +39,3 @@ void DummyCreature::setName(const string& name) {
 	this->name = name;
 }
 
-*/

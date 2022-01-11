@@ -1,4 +1,5 @@
 #include "Utils.h"
+#include "Creature.h"
 
 /*
     Press enter thanks to: https://stackoverflow.com/a/903230/13521548
@@ -99,6 +100,3 @@ string trim(const string& s) {
     return ltrim(rtrim(s));
 }
 
-Creature createCreature() {
-    return Creature();
-}

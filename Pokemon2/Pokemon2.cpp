@@ -1,11 +1,13 @@
-﻿#include <iostream>
-#include <windows.h>
-
-#include "Messages.h"
+﻿#include "Messages.h"
 #include "Config.h"
 #include "Utils.h"
+#include "Creature.h"
 
+#include <iostream>
+#include <windows.h>
 
+using std::string;
+using std::vector;
 
 int main()
 {
@@ -63,7 +65,7 @@ int main()
                 cout << SELECT_REVIEW << endl;
                 cout << "Random from 1 to 6 is: " << endl;
                 for (int i = 0; i < 10; i++) {
-                    CREAT_UNIVERSE.push_back(createCreature());
+                    CREAT_UNIVERSE.push_back(Creature{});
                     cout << "id=" << CREAT_UNIVERSE[i].getId() << endl;
                 }
                 break;

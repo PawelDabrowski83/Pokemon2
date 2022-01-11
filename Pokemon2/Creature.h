@@ -1,5 +1,9 @@
 #pragma once
 #include "Utils.h"
+#include "EnumElements.h"
+#include <string>
+
+using std::string;
 
 class Creature {
 protected:
@@ -9,10 +13,8 @@ public:
 	int getId() const;
 	Creature();
 	virtual ~Creature();
-	
-	
 };
-/*
+
 class DummyCreature : public Creature {
 protected:
 	EnumElement type;
@@ -24,4 +26,3 @@ public:
 	void setName(const string&);
 	EnumElement getType() const;
 };
-*/
