@@ -24,11 +24,12 @@ const string COMMAND_ENTER = "Press [ENTER] to continue.";
 const string ENTER_NAME = "Please enter your player name and then press [ENTER].";
 const string NAME_CONFIRM = "Nice to see you, ";
 const string HAVE_NICE_GAME = "Have a nice game!";
-const char* MAIN_MENU = R""""(
+const char* GAME_MENU = R""""(
 Please enter proper character to make a valid selection:
 [ E ] = Enter the stage.
 [ R ] = Review your team.
 [ H ] = Check highscores.
+[ D ] = Read in-depth description of what is going on.
 [ L ] = Load game.
 [ S ] = Save game.
 [ X ] = Exit game without saving.
@@ -44,7 +45,7 @@ Your team need 6 creatures.
 [ M ] = Manage your team.
 [ G ] = Choose your team at random.
 [ C ] = End selection step and continue.
-[ E ] = Exit without saving.
+[ X ] = Exit without saving.
 )"""";
 const string YOUR_TEAM_NUMBER = "Number of creatures in your team: ";
 const string SELECT_REVIEW = "Review available creatures.";
@@ -54,3 +55,20 @@ const string SELECT_CONTINUE = "Confirm your selection and go to next step.";
 const string EXIT_MSG = "Thank you for choosing our game!";
 
 const string ENTER_VALID_COMMAND = "Please enter valid command.";
+
+const char* START_TOURNAMENT = R""""(
+Grant Tournament last 4 rounds, on each you need to defeat 4 opponent creatures!
+Whenever you lose a fight, you are defeated.
+
+On each fight you and your opponent will alterate on their moves.
+On your move - choose your action to see the result.
+
+It is possible to change your creature during fight, if you want to strategize. 
+Remember that only one creature will get xp points for defeating the opponent.
+)"""";
+
+const string GAME_ROUND = "Game round number: ";
+const string OPPONENT_INFO = "A wild opponent appears. It is: ";
+const string OPPONENT_NAME_PLACEHOLDER = "Oppomon!";
+
+const string WINNING = "Grats! You have won and now you are joining Grand Tournament's Hall of Champions.";

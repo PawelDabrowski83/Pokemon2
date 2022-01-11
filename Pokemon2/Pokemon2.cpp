@@ -73,7 +73,7 @@ int main()
                 cout << SELECT_CONTINUE << endl;
                 selectStep = true;
                 break;
-            case 'E':
+            case 'X':
                 clearScreen();
                 cout << EXIT_MSG << endl;
                 return EXIT_SUCCESS;
@@ -82,5 +82,15 @@ int main()
                 // nie powinno się zdarzyć
         }
     }
+
+    /*
+        START TOURNAMENT
+    */
+    clearScreen();
+    cout << START_TOURNAMENT << endl;
+    pressEnter();
+    int gameRound = 0;
+    int defeatedOpponents = 0;
+
 }
 
