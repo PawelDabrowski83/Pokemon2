@@ -17,3 +17,9 @@
 	 4. Load game.
 	 5. Save game.
 	 6. Exit game.
+
+Basic creature definition:
+
+ 1. Id 
+ 2. Name 
+ 3. Element
