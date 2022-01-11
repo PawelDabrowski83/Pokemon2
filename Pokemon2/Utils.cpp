@@ -1,5 +1,4 @@
 #include "Utils.h"
-#include "Creature.h"
 
 /*
     Press enter thanks to: https://stackoverflow.com/a/903230/13521548

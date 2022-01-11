@@ -1,6 +1,4 @@
 #pragma once
-#include "Utils.h"
-#include "Creature.h"
 #include <vector>
 #include <string>
 

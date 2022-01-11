@@ -21,6 +21,6 @@ inline const char* toString(EnumElement v)
     case EARTH:     return "Earth";
     case ICE:       return "Ice";
     case STEEL:     return "Steel";
-    default:      return "[Unknown]";
+    default:        return "[Unknown]";
     }
 }

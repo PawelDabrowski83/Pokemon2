@@ -1,5 +1,4 @@
 #pragma once
-#include "Creature.h"
 #include "EnumElements.h"
 #include "Config.h"
 #include <iostream>

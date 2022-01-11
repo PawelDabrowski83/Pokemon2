@@ -1,9 +1,12 @@
 #pragma once
+#include "MessageSeparator.h"
 #include "Utils.h"
-#include "EnumElements.h"
 #include <string>
+#include <iostream>
 
 using std::string;
+using std::endl;
+using std::cout;
 
 class Creature {
 protected:
@@ -13,6 +16,7 @@ public:
 	int getId() const;
 	Creature();
 	virtual ~Creature();
+	virtual void printInfo() const;
 };
 
 class DummyCreature : public Creature {
@@ -25,4 +29,5 @@ public:
 	string getName() const;
 	void setName(const string&);
 	EnumElement getType() const;
+	virtual void printInfo() const;
 };

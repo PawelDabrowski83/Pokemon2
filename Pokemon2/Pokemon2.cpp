@@ -1,7 +1,5 @@
-﻿#include "Messages.h"
-#include "Config.h"
-#include "Utils.h"
-#include "Creature.h"
+﻿#include "Creature.h"
+#include "Messages.h"
 
 #include <iostream>
 #include <windows.h>
@@ -67,11 +65,15 @@ int main()
                 for (int i = 0; i < 10; i++) {
                     DummyCreature currentCreature = DummyCreature{ getRandomElement() };
                     CREAT_UNIVERSE.push_back(currentCreature);
+                    pressEnter();
+                    currentCreature.printInfo();
+                    /*
                     cout << "id = " << currentCreature.getId() << endl;
                     cout << "elem = " << getElementTxt(currentCreature.getType()) << endl;
                     cout << "name = " << currentCreature.getName() << endl;
                     cout << HORIZONTAL_LINE << endl;
-                    pressEnter();
+                    */
+                    
                 }
                 break;
             case 'M':

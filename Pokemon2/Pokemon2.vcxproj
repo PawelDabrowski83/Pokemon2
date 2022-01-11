@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="MessageSeparator.cpp" />
     <ClCompile Include="Pokemon2.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="EnumElements.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="MessageSeparator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
