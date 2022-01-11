@@ -23,11 +23,14 @@ int main()
     cin >> playerName;
     cout << NAME_CONFIRM << playerName << endl;
     cout << HAVE_NICE_GAME << endl;
-    pressEnterAndClear();
+    emptyLine(3);
+    
+    pressEnter();
 
     /*
         TEAM SELECTION
     */
+    //clearScreen();
     cout << playerName << X_TIME_TO_CREATE_TEAM << endl;
     bool selectStep = false;
     int teamCreatures = 0;
@@ -43,7 +46,7 @@ int main()
                 input != 'M' and 
                 input != 'G' and
                 input != 'C' and 
-                input != 'E') {
+                input != 'X') {
             cout << ENTER_VALID_COMMAND << endl;
             cout << SELECTION_MENU << endl;
             input = readChar();
@@ -148,7 +151,7 @@ int main()
                 }
             }
             cout << OPPONENT_INFO << OPPONENT_NAME_PLACEHOLDER << endl;
-            cout << FIGHT_VICTORY << endl;
+            cout << FIGHT_VICTORY << OPPONENT_NAME_PLACEHOLDER << endl;
             gameRoundFinished = true;
             gameRound++;
         }

@@ -34,3 +34,13 @@ char readChar() {
     cin >> c;
     return toupper(c);
 }
+
+void emptyLine() {
+    cout << endl;
+}
+
+void emptyLine(int n) {
+    while (n-- > 0) {
+        emptyLine();
+    }
+}

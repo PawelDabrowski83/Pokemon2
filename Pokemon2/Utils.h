@@ -14,3 +14,5 @@ void pressEnter();
 void clearScreen();
 void pressEnterAndClear();
 char readChar();
+void emptyLine();
+void emptyLine(int);
