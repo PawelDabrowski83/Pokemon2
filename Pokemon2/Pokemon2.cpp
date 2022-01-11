@@ -24,13 +24,11 @@ int main()
     cout << NAME_CONFIRM << playerName << endl;
     cout << HAVE_NICE_GAME << endl;
     emptyLine(3);
-    
     pressEnter();
 
     /*
         TEAM SELECTION
     */
-    //clearScreen();
     cout << playerName << X_TIME_TO_CREATE_TEAM << endl;
     bool selectStep = false;
     int teamCreatures = 0;
@@ -57,6 +55,10 @@ int main()
             case 'R':
                 clearScreen();
                 cout << SELECT_REVIEW << endl;
+                cout << "Random from 1 to 6 is: " << endl;
+                for (int i = 0; i < 10; i++) {
+                    cout << getRandomFrom(1, 6) << endl;
+                }
                 break;
             case 'M':
                 clearScreen();

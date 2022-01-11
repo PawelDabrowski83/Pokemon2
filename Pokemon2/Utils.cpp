@@ -1,7 +1,5 @@
 #include "Utils.h"
 
-using std::cin;
-
 /*
     Press enter thanks to: https://stackoverflow.com/a/903230/13521548
 */
@@ -43,4 +41,13 @@ void emptyLine(int n) {
     while (n-- > 0) {
         emptyLine();
     }
+}
+
+int getRandomFrom(int fromRange, int toRange) {
+    return (rand() % (toRange - fromRange + 1)) + fromRange;
+}
+
+string getRandom(vector<string> list) {
+    int random = rand() % 500;
+    return "";
 }
