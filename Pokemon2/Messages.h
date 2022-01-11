@@ -84,3 +84,4 @@ const string FIGHT_LOST = "You have been defeated by ";
 
 
 const string WINNING = "Grats! You have won and now you are joining Grand Tournament's Hall of Champions.";
+const string GENERAL_PLACEHOLDER = "This function is under development and may be accesible in future releases.";
