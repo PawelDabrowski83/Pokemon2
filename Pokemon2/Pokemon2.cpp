@@ -9,7 +9,7 @@ using std::vector;
 
 int main()
 {
-    vector<Creature> CREAT_UNIVERSE{};
+    vector<CapableCreature> CREAT_UNIVERSE{};
 
 
 
@@ -39,6 +39,15 @@ int main()
     bool selectStep = false;
     int teamCreatures = 0;
     char input;
+
+    /*
+        GENERATE CREATURES TO UNIVERSE
+    */
+    for (int i = 0; i < 18; i++) {
+        CREAT_UNIVERSE.push_back( 
+            CapableCreature{ getRandomElement() } 
+        );
+    }
     
     while (!selectStep) {
         cout << SELECTION_MENU << endl;
@@ -58,34 +67,28 @@ int main()
 
         // SELECT options
         switch (input) {
-            case 'R':
+            case 'R': // Review available creatures.
                 clearScreen();
                 cout << SELECT_REVIEW << endl;
-                cout << "Random from 1 to 6 is: " << endl;
-                for (int i = 0; i < 10; i++) {
-                    CapableCreature currentCreature = CapableCreature{ getRandomElement() };
-                    CREAT_UNIVERSE.push_back(currentCreature);
-                    //pressEnter();
-                    currentCreature.printShort();
-                    
-                    
+                for (int i = 0; i < CREAT_UNIVERSE.size(); i++) {
+                    CREAT_UNIVERSE[i].printShort();
                 }
                 break;
-            case 'M':
+            case 'M': // Manage your team.
                 clearScreen();
                 cout << SELECT_MANAGE << endl;
                 break;
-            case 'G':
+            case 'G': // Choose your team at random.
                 clearScreen();
                 cout << SELECT_GENERATE << endl;
                 teamCreatures = 6;
                 break;
-            case 'C':
+            case 'C': // End selection step and continue.
                 clearScreen();
                 cout << SELECT_CONTINUE << endl;
                 selectStep = true;
                 break;
-            case 'X':
+            case 'X': // Exit without saving.
                 clearScreen();
                 cout << EXIT_MSG << endl;
                 return EXIT_SUCCESS;
