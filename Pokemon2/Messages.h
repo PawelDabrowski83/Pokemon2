@@ -53,6 +53,7 @@ const string SELECT_REVIEW = "Review available creatures.";
 const string SELECT_MANAGE = "Manage your team.";
 const string SELECT_GENERATE = "Your team has been randomly filled.";
 const string SELECT_CONTINUE = "Confirm your selection and go to next step.";
+const string SELECT_CONTINUE_FAIL = "Cannot continue unless your team has all members selected.";
 const string EXIT_MSG = "Thank you for choosing our game!";
 
 const string SELECT_ENTER_ID = "Please enter id of creature you want to join to your team. [E] for end selection.";

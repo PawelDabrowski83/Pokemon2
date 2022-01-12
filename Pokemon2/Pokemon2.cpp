@@ -120,8 +120,14 @@ int main()
                 break;
             case 'C': // End selection step and continue.
                 clearScreen();
-                cout << SELECT_CONTINUE << endl;
-                selectStep = true;
+                if (YOUR_TEAM.size() != 6) {
+                    cout << SELECT_CONTINUE_FAIL << endl;
+                }
+                else {
+                    cout << SELECT_CONTINUE << endl;
+                    selectStep = true;
+                }
+                
                 break;
             case 'X': // Exit without saving.
                 clearScreen();
@@ -138,7 +144,6 @@ int main()
     */
     clearScreen();
     cout << START_TOURNAMENT << endl;
-    pressEnter();
     
     int gameRound = 0;
     int defeatedOpponents = 0;
@@ -149,6 +154,7 @@ int main()
         while (!gameRoundFinished) {
             bool actionFilled = false;
             while (!actionFilled) {
+                pressEnter();
                 cout << GAME_ROUND << gameRound << endl;
                 cout << GAME_MENU << endl;
                 input = readChar();
