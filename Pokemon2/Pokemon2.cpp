@@ -18,6 +18,8 @@ vector<CapableCreature*> YOUR_TEAM{};
 
 void showIntro();
 void showYourTeam();
+void promptForMenuSelect();
+void promptInvalidMenuSelect();
 
 int main()
 {
@@ -52,8 +54,7 @@ int main()
     }
     
     while (!selectStep) {
-        cout << SELECTION_MENU << endl;
-        cout << YOUR_TEAM_NUMBER << YOUR_TEAM.size() << endl;
+        promptForMenuSelect();
         input = readChar();
         
         //  Invalid input loop.
@@ -62,8 +63,7 @@ int main()
                 input != 'G' and
                 input != 'C' and 
                 input != 'X') {
-            cout << ENTER_VALID_COMMAND << endl;
-            cout << SELECTION_MENU << endl;
+            promptInvalidMenuSelect();
             input = readChar();
         }
 
@@ -234,3 +234,12 @@ void showIntro() {
     pressEnterAndClear();
 }
 
+void promptForMenuSelect() {
+    cout << SELECTION_MENU << endl;
+    cout << YOUR_TEAM_NUMBER << YOUR_TEAM.size() << endl;
+}
+
+void promptInvalidMenuSelect() {
+    cout << ENTER_VALID_COMMAND << endl;
+    cout << SELECTION_MENU << endl;
+}
