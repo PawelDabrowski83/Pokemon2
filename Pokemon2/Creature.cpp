@@ -191,11 +191,15 @@ void FightingCreature::setMaxLevel(const int val) {
 }
 
 void FightingCreature::printInfo() const {
-
+	Creature::printInfo();
+	DummyCreature::printInfo();
+	CapableCreature::printInfo();
+	cout << "XP: " << xp << endl;
+	cout << "Level: " << curLevel << " / " << maxLevel << endl;
 }
 
 void FightingCreature::printShort() const {
-
+	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << " XP: " << xp << " Lvl: " << curLevel << endl;
 }
 
 bool attack(const FightingCreature&) const;
