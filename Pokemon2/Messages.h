@@ -55,7 +55,7 @@ const string SELECT_GENERATE = "Generate randomly your team.";
 const string SELECT_CONTINUE = "Confirm your selection and go to next step.";
 const string EXIT_MSG = "Thank you for choosing our game!";
 
-const string SELECT_ENTER_ID = "Please enter id of creature you want to join to your team.";
+const string SELECT_ENTER_ID = "Please enter id of creature you want to join to your team. [E] for end selection.";
 const string SELECT_JOIN_CONFIRM = "You have added a creature to your team: ";
 const string SELECT_CREAT_POOL = "List of available creatures:";
 const string SELECT_CREAT_ALREADY_SELECTED = "This creature was already selected.";

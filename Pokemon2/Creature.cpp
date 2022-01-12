@@ -79,6 +79,7 @@ CapableCreature::CapableCreature(const EnumElement& element) : DummyCreature(ele
 	this->curDexterity = maxDexterity;
 	this->maxHp = calculateHp();
 	this->curHp = maxHp;
+	this->selected = false;
 }
 
 CapableCreature::~CapableCreature() {};
@@ -107,6 +108,10 @@ int CapableCreature::getCurHp() const {
 	return curHp;
 }
 
+bool CapableCreature::isSelected() const {
+	return selected;
+}
+
 void CapableCreature::setMaxStrength(const int val) {
 	this->maxStrength = val;
 }
@@ -129,6 +134,10 @@ void CapableCreature::setMaxHp(const int val) {
 
 void CapableCreature::setCurHp(const int val) {
 	this->curHp = val;
+}
+
+void CapableCreature::setSelected(const bool val) {
+	selected = val;
 }
 
 void CapableCreature::printInfo() const {

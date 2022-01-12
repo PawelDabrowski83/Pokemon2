@@ -42,6 +42,7 @@ protected:
 	int maxStrength;
 	int maxDexterity;
 	int maxHp;
+	bool selected;
 public:
 	int calculateHp() const;
 	CapableCreature(const EnumElement&);
@@ -58,6 +59,10 @@ public:
 	void setMaxDexterity(const int);
 	int getMaxHp() const;
 	void setMaxHp(const int);
+	bool isSelected() const;
+	void setSelected(const bool);
+	
 	virtual void printInfo() const;
 	virtual void printShort() const;
+
 };

@@ -3,8 +3,14 @@
 
 #include <iostream>
 #include <windows.h>
+#include <regex>
+#include <algorithm>
+#include <string>
 
+using std::regex;
+using std::regex_match;
 using std::string;
+using std::transform;
 using std::vector;
 
 int main()
@@ -39,6 +45,7 @@ int main()
     bool selectStep = false;
     int teamCreatures = 0;
     char input;
+    string longInput;
 
     /*
         GENERATE CREATURES TO UNIVERSE
@@ -66,12 +73,30 @@ int main()
         }
 
         // SELECT options
+        bool selectReviewStep;
         switch (input) {
             case 'R': // Review available creatures.
                 clearScreen();
-                cout << SELECT_REVIEW << endl;
-                for (int i = 0; i < CREAT_UNIVERSE.size(); i++) {
-                    CREAT_UNIVERSE[i].printShort();
+                selectReviewStep = false;
+                while (!selectReviewStep) {
+                    cout << SELECT_REVIEW << endl;
+                    for (size_t i = 0; i < CREAT_UNIVERSE.size(); i++) {
+                        CapableCreature curCreature = CREAT_UNIVERSE[i];
+                        if (!curCreature.isSelected()) {
+                            curCreature.printShort();
+                        }
+                    }
+                    cout << SELECT_ENTER_ID << endl;
+                    cin >> longInput;
+                    // invalid input loop
+                    //  if (regex_match ("softwareTesting", regex("(soft)(.*)") ))
+                    while (!regex_match(longInput, regex("^(E|e|\\d+)$"))) {
+                        cout << ENTER_VALID_COMMAND << endl;
+                        cout << SELECT_ENTER_ID << endl;
+                        cin >> longInput;
+                    }
+                    cout << "Your input is: " << longInput << endl;
+                    // switch
                 }
                 break;
             case 'M': // Manage your team.
