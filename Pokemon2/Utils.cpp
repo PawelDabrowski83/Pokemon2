@@ -99,3 +99,25 @@ string trim(const string& s) {
     return ltrim(rtrim(s));
 }
 
+int dice(const int val) {
+    if (val > 0) {
+        return getRandomFrom(1, val);
+    }
+    return 0;
+}
+
+int dice(const int val, const int repeat) {
+    int sum = 0;
+    if (val > 0 and repeat > 0) {
+        int counter = 0;
+        while (counter++ < repeat) {
+            sum += dice(val);
+        }
+    }
+    return sum;
+}
+
+int d10() {
+
+}
+

@@ -202,7 +202,9 @@ void FightingCreature::printShort() const {
 	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << " XP: " << xp << " Lvl: " << curLevel << endl;
 }
 
-bool attack(const FightingCreature&) const;
+bool FightingCreature::attack(const FightingCreature& other) const {
+
+}
 int calculateHit(const FightingCreature&) const;
 void takeHarm(const int);
 int calculateXp(const FightingCreature&) const;
