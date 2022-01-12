@@ -65,8 +65,8 @@ int main()
                 for (int i = 0; i < 10; i++) {
                     CapableCreature currentCreature = CapableCreature{ getRandomElement() };
                     CREAT_UNIVERSE.push_back(currentCreature);
-                    pressEnter();
-                    currentCreature.printInfo();
+                    //pressEnter();
+                    currentCreature.printShort();
                     
                     
                 }

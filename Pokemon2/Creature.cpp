@@ -20,6 +20,11 @@ void Creature::printInfo() const {
 	cout << "Id: " << id << endl;
 }
 
+void Creature::printShort() const {
+	cout << HORIZONTAL_LINE << endl;
+	cout << "Id: " << id << endl;
+}
+
 // First step class
 DummyCreature::DummyCreature(const EnumElement& type) {
 	this->type = type;
@@ -42,6 +47,12 @@ void DummyCreature::setName(const string& name) {
 }
 
 void DummyCreature::printInfo() const {
+	//Creature::printInfo();
+	cout << "Name: " << name << endl;
+	cout << "Element: " << getElementTxt(type) << endl;
+}
+
+void DummyCreature::printShort() const {
 	Creature::printInfo();
 	cout << "Name: " << name << endl;
 	cout << "Element: " << getElementTxt(type) << endl;
@@ -126,4 +137,8 @@ void CapableCreature::printInfo() const {
 	cout << "Strength: " << curStrength << " / " << maxStrength << endl;
 	cout << "Dexterity: " << curDexterity << " / " << maxDexterity << endl;
 	cout << "HP: " << curHp << " / " << maxHp << endl;
+}
+
+void CapableCreature::printShort() const {
+	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << endl;
 }
