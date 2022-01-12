@@ -59,6 +59,7 @@ const string SELECT_ENTER_ID = "Please enter id of creature you want to join to 
 const string SELECT_JOIN_CONFIRM = "You have added a creature to your team: ";
 const string SELECT_CREAT_POOL = "List of available creatures:";
 const string SELECT_CREAT_ALREADY_SELECTED = "This creature was already selected.";
+const string SELECT_INVALID_ID = "There is no creature with given id.";
 
 const string ENTER_VALID_COMMAND = "Please enter valid command.";
 

@@ -14,6 +14,10 @@ int Creature::getId() const {
 	return id;
 };
 
+int Creature::getCount() {
+	return count;
+}
+
 void Creature::printInfo() const {
 	emptyLine();
 	cout << HORIZONTAL_LINE << endl;
@@ -137,7 +141,7 @@ void CapableCreature::setCurHp(const int val) {
 }
 
 void CapableCreature::setSelected(const bool val) {
-	selected = val;
+	this->selected = val;
 }
 
 void CapableCreature::printInfo() const {

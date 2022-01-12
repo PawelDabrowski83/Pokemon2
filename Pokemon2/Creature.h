@@ -18,6 +18,7 @@ public:
 	virtual ~Creature();
 	virtual void printInfo() const;
 	virtual void printShort() const;
+	static int getCount();
 };
 
 class DummyCreature : public Creature {

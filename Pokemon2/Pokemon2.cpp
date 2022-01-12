@@ -74,6 +74,7 @@ int main()
 
         // SELECT options
         bool selectReviewStep;
+        int numberBuffer;
         switch (input) {
             case 'R': // Review available creatures.
                 clearScreen();
@@ -90,13 +91,32 @@ int main()
                     cin >> longInput;
                     // invalid input loop
                     //  if (regex_match ("softwareTesting", regex("(soft)(.*)") ))
-                    while (!regex_match(longInput, regex("^(E|e|\\d+)$"))) {
+                    while (!regex_match(longInput, regex("^E$|^e$|^\\d+$"))) {
                         cout << ENTER_VALID_COMMAND << endl;
                         cout << SELECT_ENTER_ID << endl;
                         cin >> longInput;
                     }
-                    cout << "Your input is: " << longInput << endl;
-                    // switch
+                    if (longInput == "e" or longInput == "E") {
+                        selectReviewStep = true;
+                    }
+                    else {
+                        numberBuffer = stoi(longInput);
+                        if (numberBuffer >= Creature::getCount()) {
+                            cout << SELECT_INVALID_ID << endl;
+                        }
+                        else {
+                            CapableCreature* selectedCreature = &CREAT_UNIVERSE[numberBuffer];
+                            selectedCreature->setSelected(true);
+                        }
+                        
+                    }
+                    cout << "Your team is: " << endl;
+                    for (int i = 0; i < CREAT_UNIVERSE.size(); i++) {
+                        CapableCreature curCreature = CREAT_UNIVERSE[i];
+                        if (curCreature.isSelected()) {
+                            curCreature.printShort();
+                        }
+                    }
                 }
                 break;
             case 'M': // Manage your team.
