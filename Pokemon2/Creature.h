@@ -25,9 +25,36 @@ protected:
 	string name;
 public:
 	DummyCreature(const EnumElement&);
-	~DummyCreature();
+	virtual ~DummyCreature();
 	string getName() const;
 	void setName(const string&);
 	EnumElement getType() const;
+	virtual void printInfo() const;
+};
+
+class CapableCreature : public DummyCreature {
+protected:
+	int curStrength;
+	int curDexterity;
+	int curHp;
+	int maxStrength;
+	int maxDexterity;
+	int maxHp;
+public:
+	int calculateHp() const;
+	CapableCreature(const EnumElement&);
+	~CapableCreature();
+	int getCurStrength() const;
+	void setCurStrength(const int);
+	int getCurDexterity() const;
+	void setCurDexterity(const int);
+	int getCurHp() const;
+	void setCutHp(const int);
+	int getMaxStrength() const;
+	void setMaxStrength(const int);
+	int getMaxDexterity() const;
+	void setMaxDexterity(const int);
+	int getMaxHp() const;
+	void setMaxHp(const int);
 	virtual void printInfo() const;
 };

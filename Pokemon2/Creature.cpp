@@ -46,3 +46,29 @@ void DummyCreature::printInfo() const {
 	cout << "Name: " << name << endl;
 	cout << "Element: " << getElementTxt(type) << endl;
 }
+
+/*
+	CAPABLE CREATURE - provide basic stats
+*/
+const static int CREAT_MIN_STRENGTH = 1;
+const static int CREAT_MAX_STRENGTH = 20;
+const static int CREAT_STARTING_STRENGTH_BOUND = 6;
+const static int CREAT_MIN_DEXTERITY = 1;
+const static int CREAT_MAX_DEXTERITY = 20;
+const static int CREAT_STARTING_DEXTERITY_BOUND = 6;
+
+int CapableCreature::calculateHp() const {
+	return curStrength * 3 + curDexterity;
+}
+
+CapableCreature::CapableCreature(const EnumElement& element) : DummyCreature(element) {
+	this->maxStrength = getRandomFrom(CREAT_MIN_STRENGTH, CREAT_STARTING_STRENGTH_BOUND);
+	this->maxDexterity = getRandomFrom(CREAT_MIN_DEXTERITY, CREAT_STARTING_DEXTERITY_BOUND);
+	this->curStrength = maxStrength;
+	this->curDexterity = maxDexterity;
+	this->maxHp = calculateHp();
+	this->curHp = maxHp;
+}
+
+CapableCreature::~CapableCreature() {};
+
