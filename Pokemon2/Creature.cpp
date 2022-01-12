@@ -72,3 +72,58 @@ CapableCreature::CapableCreature(const EnumElement& element) : DummyCreature(ele
 
 CapableCreature::~CapableCreature() {};
 
+int CapableCreature::getMaxStrength() const {
+	return maxStrength;
+}
+
+int CapableCreature::getCurStrength() const {
+	return curStrength;
+}
+
+int CapableCreature::getMaxDexterity() const {
+	return maxDexterity;
+}
+
+int CapableCreature::getCurDexterity() const {
+	return curDexterity;
+}
+
+int CapableCreature::getMaxHp() const {
+	return maxHp;
+}
+
+int CapableCreature::getCurHp() const {
+	return curHp;
+}
+
+void CapableCreature::setMaxStrength(const int val) {
+	this->maxStrength = val;
+}
+
+void CapableCreature::setCurStrength(const int val) {
+	this->curStrength = val;
+}
+
+void CapableCreature::setMaxDexterity(const int val) {
+	this->maxDexterity = val;
+}
+
+void CapableCreature::setCurDexterity(const int val) {
+	this->curDexterity = val;
+}
+
+void CapableCreature::setMaxHp(const int val) {
+	this->maxHp = val;
+}
+
+void CapableCreature::setCurHp(const int val) {
+	this->curHp = val;
+}
+
+void CapableCreature::printInfo() const {
+	Creature::printInfo();
+	DummyCreature::printInfo();
+	cout << "Strength: " << curStrength << " / " << maxStrength << endl;
+	cout << "Dexterity: " << curDexterity << " / " << maxDexterity << endl;
+	cout << "HP: " << curHp << " / " << maxHp << endl;
+}

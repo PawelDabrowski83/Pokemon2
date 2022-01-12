@@ -49,7 +49,7 @@ public:
 	int getCurDexterity() const;
 	void setCurDexterity(const int);
 	int getCurHp() const;
-	void setCutHp(const int);
+	void setCurHp(const int);
 	int getMaxStrength() const;
 	void setMaxStrength(const int);
 	int getMaxDexterity() const;
