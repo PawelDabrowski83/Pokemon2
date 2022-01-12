@@ -51,7 +51,7 @@ Your team need 6 creatures.
 const string YOUR_TEAM_NUMBER = "Number of creatures in your team: ";
 const string SELECT_REVIEW = "Review available creatures.";
 const string SELECT_MANAGE = "Manage your team.";
-const string SELECT_GENERATE = "Generate randomly your team.";
+const string SELECT_GENERATE = "Your team has been randomly filled.";
 const string SELECT_CONTINUE = "Confirm your selection and go to next step.";
 const string EXIT_MSG = "Thank you for choosing our game!";
 
@@ -60,6 +60,7 @@ const string SELECT_JOIN_CONFIRM = "You have added a creature to your team: ";
 const string SELECT_CREAT_POOL = "List of available creatures:";
 const string SELECT_CREAT_ALREADY_SELECTED = "This creature was already selected.";
 const string SELECT_INVALID_ID = "There is no creature with given id.";
+const string SELECT_TEAM_MEMBERS_LIMIT = "You have reached limit of your team members.";
 
 const string ENTER_VALID_COMMAND = "Please enter valid command.";
 

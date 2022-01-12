@@ -18,23 +18,24 @@ vector<CapableCreature*> YOUR_TEAM{};
 
 void showIntro();
 void showYourTeam();
+void fillCreatureUniverse(const int);
+void confirmPlayerNameWith(const string&);
 void promptForMenuSelect();
 void promptInvalidMenuSelect();
+void promptSelectCreatureToTeam();
+
+
+const int CREATURES_IN_UNIVERSE = 18;
 
 int main()
 {
     showIntro();
+    fillCreatureUniverse(CREATURES_IN_UNIVERSE);
 
-    /*
-        ENTER NAME
-    */
     cout << ENTER_NAME << endl;
     string playerName;
     cin >> playerName;
-    cout << NAME_CONFIRM << playerName << endl;
-    cout << HAVE_NICE_GAME << endl;
-    emptyLine(3);
-    pressEnter();
+    confirmPlayerNameWith(playerName);
 
     /*
         TEAM SELECTION
@@ -43,56 +44,35 @@ int main()
     bool selectStep = false;
     char input;
     string longInput;
-
-    /*
-        GENERATE CREATURES TO UNIVERSE
-    */
-    for (int i = 0; i < 18; i++) {
-        CREAT_UNIVERSE.push_back( 
-            CapableCreature{ getRandomElement() } 
-        );
-    }
     
-    while (!selectStep) {
+    while (!selectStep) { // loop for SELECT menu
         promptForMenuSelect();
         input = readChar();
         
         //  Invalid input loop.
-        while ( input != 'R' and 
-                input != 'M' and 
-                input != 'G' and
-                input != 'C' and 
-                input != 'X') {
+        while ( input != 'R' and input != 'M' and input != 'G' and 
+                input != 'C' and input != 'X') {
             promptInvalidMenuSelect();
             input = readChar();
         }
 
-        // SELECT options
-        bool selectReviewStep;
+        bool selectReviewFinished;
         int numberBuffer;
         switch (input) {
             case 'R': // Review available creatures.
                 clearScreen();
-                selectReviewStep = false;
-                while (!selectReviewStep) {
-                    cout << SELECT_REVIEW << endl;
-                    for (size_t i = 0; i < CREAT_UNIVERSE.size(); i++) {
-                        CapableCreature curCreature = CREAT_UNIVERSE[i];
-                        if (!curCreature.isSelected()) {
-                            curCreature.printShort();
-                        }
-                    }
-                    cout << SELECT_ENTER_ID << endl;
+                selectReviewFinished = YOUR_TEAM.size() >= 6 ? true : false;
+                while (!selectReviewFinished) {
+                    promptSelectCreatureToTeam();
                     cin >> longInput;
                     // invalid input loop
-                    //  if (regex_match ("softwareTesting", regex("(soft)(.*)") ))
                     while (!regex_match(longInput, regex("^E$|^e$|^\\d+$"))) {
                         cout << ENTER_VALID_COMMAND << endl;
                         cout << SELECT_ENTER_ID << endl;
                         cin >> longInput;
                     }
                     if (longInput == "e" or longInput == "E") {
-                        selectReviewStep = true;
+                        selectReviewFinished = true;
                     }
                     else {
                         numberBuffer = stoi(longInput);
@@ -107,21 +87,36 @@ int main()
                             else {
                                 YOUR_TEAM.push_back(selectedCreature);
                                 selectedCreature->setSelected(true);
+                                selectReviewFinished = YOUR_TEAM.size() >= 6 ? true : false;
                             }
                             
                         }
-                        
                     }
+                    showYourTeam();
+                }
+                
+                if (YOUR_TEAM.size() >= 6) {
+                    cout << SELECT_TEAM_MEMBERS_LIMIT << endl;
+                    selectReviewFinished = true;
                     showYourTeam();
                 }
                 break;
             case 'M': // Manage your team.
                 clearScreen();
                 cout << SELECT_MANAGE << endl;
+                showYourTeam();
                 break;
             case 'G': // Choose your team at random.
                 clearScreen();
                 cout << SELECT_GENERATE << endl;
+                while (YOUR_TEAM.size() < 6) {
+                    int randomIndex = getRandomFrom(0, Creature::getCount() - 1);
+                    CapableCreature* randomCreature = &CREAT_UNIVERSE[randomIndex];
+                    if (!randomCreature->isSelected()) {
+                        YOUR_TEAM.push_back(randomCreature);
+                        randomCreature->setSelected(true);
+                    }
+                }
                 break;
             case 'C': // End selection step and continue.
                 clearScreen();
@@ -219,7 +214,7 @@ int main()
 
 void showYourTeam() {
     cout << "Your team is: " << endl;
-    for (int i = 0; i < YOUR_TEAM.size(); i++) {
+    for (size_t i = 0; i < YOUR_TEAM.size(); i++) {
         CapableCreature* curCreature = YOUR_TEAM[i];
         if (curCreature->isSelected()) {
             curCreature->printShort();
@@ -242,4 +237,31 @@ void promptForMenuSelect() {
 void promptInvalidMenuSelect() {
     cout << ENTER_VALID_COMMAND << endl;
     cout << SELECTION_MENU << endl;
+}
+
+void promptSelectCreatureToTeam() {
+    cout << SELECT_REVIEW << endl;
+    for (size_t i = 0; i < CREAT_UNIVERSE.size(); i++) {
+        CapableCreature* curCreature = &CREAT_UNIVERSE[i];
+        if (!curCreature->isSelected()) {
+            curCreature->printShort();
+        }
+    }
+    cout << SELECT_ENTER_ID << endl;
+}
+
+void fillCreatureUniverse(const int bound) {
+    for (int i = 0; i < bound; i++) {
+        CREAT_UNIVERSE.push_back(
+            CapableCreature{ getRandomElement() }
+        );
+    }
+}
+
+void confirmPlayerNameWith(const string& playerName) {
+    cout << NAME_CONFIRM << playerName << endl;
+    cout << HAVE_NICE_GAME << endl;
+    emptyLine(3);
+    pressEnter();
+
 }
