@@ -203,13 +203,38 @@ void FightingCreature::printShort() const {
 }
 
 bool FightingCreature::attack(const FightingCreature& other) const {
-	int chanceToHit = curStrength + dice(6, 3);
-	int chanceToAvoid = other.curDexterity + dice(6, 3);
+	int bonusToHit = 0;
+	int bonusToAvoid = 0;
+	if (compareElementWith(other) == 1) {
+		bonusToHit += dice(6, 3);
+	}
+	else if (compareElementWith(other) == -1) {
+		bonusToAvoid += dice(6, 1);
+	}
+	
+	int chanceToHit = curStrength + dice(10) + bonusToHit;
+	int chanceToAvoid = other.curDexterity + dice(8) + bonusToAvoid;
 	return chanceToHit > chanceToAvoid;
 }
-int calculateHit(const FightingCreature&) const {
 
+int FightingCreature::compareElementWith(const FightingCreature& other) const {
+	return compare(getType(), other.getType());
 }
+
+int FightingCreature::calculateHit(const FightingCreature& other) const {
+	int bonusToHit = 0;
+	if (compareElementWith(other) == 1) {
+		bonusToHit += dice(10, 3);
+	}
+	else if (compareElementWith(other) == -1) {
+		bonusToHit += dice(6);
+	}
+	else {
+		bonusToHit += dice(10);
+	}
+	return curStrength + bonusToHit;
+}
+
 void takeHarm(const int);
 int calculateXp(const FightingCreature&) const;
 int calculateMaxLevel(const int) const;

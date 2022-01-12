@@ -117,7 +117,4 @@ int dice(const int val, const int repeat) {
     return sum;
 }
 
-int d10() {
-
-}
 
