@@ -155,3 +155,51 @@ void CapableCreature::printInfo() const {
 void CapableCreature::printShort() const {
 	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << endl;
 }
+
+FightingCreature::FightingCreature(const EnumElement& element) : CapableCreature(element) {};
+
+FightingCreature::~FightingCreature() {}
+
+int FightingCreature::getXp() const {
+	return xp;
+}
+
+void FightingCreature::setXp(const int val) {
+	xp = val > xp ? val : xp;
+}
+
+void FightingCreature::addXp(const int val) {
+	if (val > 0) {
+		setXp(getXp() + val);
+	}
+}
+
+int FightingCreature::getCurLevel() const {
+	return curLevel;
+}
+
+void FightingCreature::setCurLevel(const int val) {
+	curLevel = val > curLevel ? val : curLevel;
+}
+
+int FightingCreature::getMaxLevel() const {
+	return maxLevel;
+}
+
+void FightingCreature::setMaxLevel(const int val) {
+	maxLevel = val > maxLevel ? val : maxLevel;
+}
+
+void FightingCreature::printInfo() const {
+
+}
+
+void FightingCreature::printShort() const {
+
+}
+
+bool attack(const FightingCreature&) const;
+int calculateHit(const FightingCreature&) const;
+void takeHarm(const int);
+int calculateXp(const FightingCreature&) const;
+int calculateMaxLevel(const int) const;
