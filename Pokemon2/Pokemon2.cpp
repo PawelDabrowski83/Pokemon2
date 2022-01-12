@@ -13,19 +13,15 @@ using std::string;
 using std::transform;
 using std::vector;
 
+vector<CapableCreature> CREAT_UNIVERSE{};
+vector<CapableCreature*> YOUR_TEAM{};
+
+void showIntro();
+void showYourTeam();
+
 int main()
 {
-    vector<CapableCreature> CREAT_UNIVERSE{};
-
-
-
-    /*
-        WELCOME STEP
-    */
-    cout << MAIN_INTRODUCTION << endl;
-    cout << GRAND_TITLE << endl;
-    cout << COMMAND_ENTER << endl;
-    pressEnterAndClear();
+    showIntro();
 
     /*
         ENTER NAME
@@ -43,7 +39,6 @@ int main()
     */
     cout << playerName << X_TIME_TO_CREATE_TEAM << endl;
     bool selectStep = false;
-    int teamCreatures = 0;
     char input;
     string longInput;
 
@@ -58,7 +53,7 @@ int main()
     
     while (!selectStep) {
         cout << SELECTION_MENU << endl;
-        cout << YOUR_TEAM_NUMBER << teamCreatures << endl;
+        cout << YOUR_TEAM_NUMBER << YOUR_TEAM.size() << endl;
         input = readChar();
         
         //  Invalid input loop.
@@ -106,17 +101,18 @@ int main()
                         }
                         else {
                             CapableCreature* selectedCreature = &CREAT_UNIVERSE[numberBuffer];
-                            selectedCreature->setSelected(true);
+                            if (selectedCreature->isSelected()) {
+                                cout << SELECT_CREAT_ALREADY_SELECTED << endl;
+                            }
+                            else {
+                                YOUR_TEAM.push_back(selectedCreature);
+                                selectedCreature->setSelected(true);
+                            }
+                            
                         }
                         
                     }
-                    cout << "Your team is: " << endl;
-                    for (int i = 0; i < CREAT_UNIVERSE.size(); i++) {
-                        CapableCreature curCreature = CREAT_UNIVERSE[i];
-                        if (curCreature.isSelected()) {
-                            curCreature.printShort();
-                        }
-                    }
+                    showYourTeam();
                 }
                 break;
             case 'M': // Manage your team.
@@ -126,7 +122,6 @@ int main()
             case 'G': // Choose your team at random.
                 clearScreen();
                 cout << SELECT_GENERATE << endl;
-                teamCreatures = 6;
                 break;
             case 'C': // End selection step and continue.
                 clearScreen();
@@ -220,5 +215,22 @@ int main()
 
     cout << WINNING << endl;
 
+}
+
+void showYourTeam() {
+    cout << "Your team is: " << endl;
+    for (int i = 0; i < YOUR_TEAM.size(); i++) {
+        CapableCreature* curCreature = YOUR_TEAM[i];
+        if (curCreature->isSelected()) {
+            curCreature->printShort();
+        }
+    }
+}
+
+void showIntro() {
+    cout << MAIN_INTRODUCTION << endl;
+    cout << GRAND_TITLE << endl;
+    cout << COMMAND_ENTER << endl;
+    pressEnterAndClear();
 }
 
