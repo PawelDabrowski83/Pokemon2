@@ -65,5 +65,30 @@ public:
 	
 	virtual void printInfo() const;
 	virtual void printShort() const;
+};
 
+class FightingCreature : public CapableCreature {
+protected:
+	int xp;
+	int curLevel;
+	int maxLevel;
+public:
+	FightingCreature(const EnumElement&);
+	virtual ~FightingCreature();
+	int getXp() const;
+	void setXp(const int);
+	void addXp(const int);
+	int getCurLevel() const;
+	void setCurLevel(const int);
+	int getMaxLevel() const;
+	void setMaxLevel(const int);
+
+	virtual void printInfo() const;
+	virtual void printShort() const;
+
+	bool attack(const FightingCreature&) const;
+	int calculateHit(const FightingCreature&) const;
+	void takeHarm(const int);
+	int calculateXp(const FightingCreature&) const;
+	int calculateMaxLevel(const int) const;
 };
