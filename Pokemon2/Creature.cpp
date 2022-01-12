@@ -235,6 +235,22 @@ int FightingCreature::calculateHit(const FightingCreature& other) const {
 	return curStrength + bonusToHit;
 }
 
-void takeHarm(const int);
-int calculateXp(const FightingCreature&) const;
-int calculateMaxLevel(const int) const;
+void FightingCreature::takeHarm(const int val) {
+	if (val > 0) {
+		curHp = val > curHp ? 0 : curHp - val;
+	}
+}
+
+int FightingCreature::calculateXp(const FightingCreature& other) const {
+	int bonusLevel = other.curLevel - curLevel > 0 ? other.curLevel - curLevel * 50 : 0;
+	return other.getMaxHp() + bonusLevel;
+}
+
+int FightingCreature::calculateMaxLevel() const {
+	if (xp < 201) {
+		return xp / 50;
+	}
+	else {
+		return (xp - 200) / 150;
+	}
+}

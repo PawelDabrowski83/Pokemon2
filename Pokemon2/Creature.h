@@ -91,5 +91,5 @@ public:
 	int compareElementWith(const FightingCreature&) const;
 	void takeHarm(const int);
 	int calculateXp(const FightingCreature&) const;
-	int calculateMaxLevel(const int) const;
+	int calculateMaxLevel() const;
 };
