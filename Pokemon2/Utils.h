@@ -37,4 +37,3 @@ string rtrim(const string&);
 string trim(const string&);
 int dice(const int);
 int dice(const int, const int);
-

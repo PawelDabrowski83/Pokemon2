@@ -25,7 +25,7 @@ inline const char* toString(EnumElement v)
     }
 }
 
-int compare(const EnumElement& source, const EnumElement& target) {
+int compareMix(const EnumElement& source, const EnumElement& target) {
     switch (source) {
         case FIRE:
             switch (target) {
@@ -69,7 +69,6 @@ int compare(const EnumElement& source, const EnumElement& target) {
                 default:        return 0;
             }
             break;
-        default: break;
+        default: return 0;
     }
-    return 0;
 }

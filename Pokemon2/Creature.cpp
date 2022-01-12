@@ -156,7 +156,11 @@ void CapableCreature::printShort() const {
 	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << endl;
 }
 
-FightingCreature::FightingCreature(const EnumElement& element) : CapableCreature(element) {};
+FightingCreature::FightingCreature(const EnumElement& element) : CapableCreature(element) {
+	this->xp = 0;
+	this->maxLevel = 0;
+	this->curLevel = 0;
+};
 
 FightingCreature::~FightingCreature() {}
 
@@ -218,7 +222,7 @@ bool FightingCreature::attack(const FightingCreature& other) const {
 }
 
 int FightingCreature::compareElementWith(const FightingCreature& other) const {
-	return compare(getType(), other.getType());
+	return compareMix(getType(), other.getType());
 }
 
 int FightingCreature::calculateHit(const FightingCreature& other) const {
