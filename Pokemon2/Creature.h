@@ -17,6 +17,7 @@ public:
 	Creature();
 	virtual ~Creature();
 	virtual void printInfo() const;
+	virtual void printShort() const;
 };
 
 class DummyCreature : public Creature {
@@ -30,6 +31,7 @@ public:
 	void setName(const string&);
 	EnumElement getType() const;
 	virtual void printInfo() const;
+	virtual void printShort() const;
 };
 
 class CapableCreature : public DummyCreature {
@@ -57,4 +59,5 @@ public:
 	int getMaxHp() const;
 	void setMaxHp(const int);
 	virtual void printInfo() const;
+	virtual void printShort() const;
 };
