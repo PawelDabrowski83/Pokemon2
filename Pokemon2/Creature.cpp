@@ -201,6 +201,25 @@ void FightingCreature::printShort() const {
 	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << " XP: " << xp << " Lvl: " << curLevel << endl;
 }
 
+void FightingCreature::attack(FightingCreature& other) const{
+	cout << getName() << X_CREAT_MAKING_ATTACK << endl;
+	bool attemptedStrike = strike(other);
+	if (!attemptedStrike) {
+		cout << ATTACK_FAILED << endl;
+	}
+	else {
+		cout << ATTACK_HIT << endl;
+		int damage = calculateHit(other);
+		other.takeHarm(damage);
+		if (other.getCurHp() > 0) {
+			cout << other.getName() << X_CREAT_LOST_HP << other.getCurHp() << " / " << other.getMaxHp() << endl;
+		}
+		else {
+			cout << other.getName() << X_CREAT_LOST_ALL_HP << endl;
+		}
+	}
+}
+
 bool FightingCreature::strike(const FightingCreature& other) const {
 	int bonusToHit = 0;
 	int bonusToAvoid = 0;
