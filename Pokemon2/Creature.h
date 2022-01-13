@@ -35,6 +35,13 @@ public:
 	virtual void printShort() const;
 };
 
+const static int CREAT_MIN_STRENGTH = 1;
+const static int CREAT_MAX_STRENGTH = 20;
+const static int CREAT_STARTING_STRENGTH_BOUND = 6;
+const static int CREAT_MIN_DEXTERITY = 1;
+const static int CREAT_MAX_DEXTERITY = 20;
+const static int CREAT_STARTING_DEXTERITY_BOUND = 6;
+
 class CapableCreature : public DummyCreature {
 protected:
 	int curStrength;

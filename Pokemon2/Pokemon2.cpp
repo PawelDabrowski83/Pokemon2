@@ -13,8 +13,8 @@ using std::string;
 using std::transform;
 using std::vector;
 
-vector<CapableCreature> CREAT_UNIVERSE{};
-vector<CapableCreature*> YOUR_TEAM{};
+vector<FightingCreature> CREAT_UNIVERSE{};
+vector<FightingCreature*> YOUR_TEAM{};
 
 void showIntro();
 void showYourTeam();
@@ -23,6 +23,8 @@ void confirmPlayerNameWith(const string&);
 void promptForMenuSelect();
 void promptInvalidMenuSelect();
 void promptSelectCreatureToTeam();
+void addRandomCreatureToTeam();
+FightingCreature getYourOpponent(const int);
 
 
 const int CREATURES_IN_UNIVERSE = 18;
@@ -80,7 +82,7 @@ int main()
                             cout << SELECT_INVALID_ID << endl;
                         }
                         else {
-                            CapableCreature* selectedCreature = &CREAT_UNIVERSE[numberBuffer];
+                            FightingCreature* selectedCreature = &CREAT_UNIVERSE[numberBuffer];
                             if (selectedCreature->isSelected()) {
                                 cout << SELECT_CREAT_ALREADY_SELECTED << endl;
                             }
@@ -110,12 +112,7 @@ int main()
                 clearScreen();
                 cout << SELECT_GENERATE << endl;
                 while (YOUR_TEAM.size() < 6) {
-                    int randomIndex = getRandomFrom(0, Creature::getCount() - 1);
-                    CapableCreature* randomCreature = &CREAT_UNIVERSE[randomIndex];
-                    if (!randomCreature->isSelected()) {
-                        YOUR_TEAM.push_back(randomCreature);
-                        randomCreature->setSelected(true);
-                    }
+                    addRandomCreatureToTeam();
                 }
                 break;
             case 'C': // End selection step and continue.
@@ -152,6 +149,7 @@ int main()
     while (gameRound <= 4) {
         bool gameRoundFinished = false;
         while (!gameRoundFinished) {
+            FightingCreature opponent = getYourOpponent(gameRound);
             bool actionFilled = false;
             while (!actionFilled) {
                 pressEnter();
@@ -173,8 +171,15 @@ int main()
 
                 // GAME options
                 switch (input) {
-                case 'E':
+                case 'E': // start fight
                     clearScreen();
+                    bool fightInProgress = true;
+                    while (fightInProgress) {
+                        bool activePlayer = true;
+                        while (activePlayer) {
+
+                        }
+                    }
                     cout << GAME_ENTER_STAGE << endl;
                     actionFilled = true;
                     break;
@@ -221,7 +226,7 @@ int main()
 void showYourTeam() {
     cout << "Your team is: " << endl;
     for (size_t i = 0; i < YOUR_TEAM.size(); i++) {
-        CapableCreature* curCreature = YOUR_TEAM[i];
+        FightingCreature* curCreature = YOUR_TEAM[i];
         if (curCreature->isSelected()) {
             curCreature->printShort();
         }
@@ -259,7 +264,7 @@ void promptSelectCreatureToTeam() {
 void fillCreatureUniverse(const int bound) {
     for (int i = 0; i < bound; i++) {
         CREAT_UNIVERSE.push_back(
-            CapableCreature{ getRandomElement() }
+            FightingCreature{ getRandomElement() }
         );
     }
 }
@@ -269,5 +274,29 @@ void confirmPlayerNameWith(const string& playerName) {
     cout << HAVE_NICE_GAME << endl;
     emptyLine(3);
     pressEnter();
+}
 
+void addRandomCreatureToTeam() {
+    int randomIndex = getRandomFrom(0, Creature::getCount() - 1);
+    FightingCreature* randomCreature = &CREAT_UNIVERSE[randomIndex];
+    if (!randomCreature->isSelected()) {
+        YOUR_TEAM.push_back(randomCreature);
+        randomCreature->setSelected(true);
+    }
+}
+
+FightingCreature getYourOpponent(const int gameRound) {
+    int random = getRandomFrom(0, CREAT_UNIVERSE.size());
+    FightingCreature opponent = CREAT_UNIVERSE[random];
+    if (gameRound < 2) {
+        opponent.setMaxStrength(opponent.getMaxStrength() - 2 < CREAT_MIN_STRENGTH ? opponent.getMaxStrength() - 2 : CREAT_MIN_STRENGTH);
+        opponent.setMaxDexterity(opponent.getMaxDexterity() - 2 < CREAT_MIN_DEXTERITY ? opponent.getMaxDexterity() - 2 : CREAT_MIN_DEXTERITY);
+        opponent.setMaxHp(opponent.calculateHp());
+    }
+    else {
+        opponent.setMaxStrength(opponent.getMaxStrength() + 2 > CREAT_MAX_STRENGTH ? opponent.getMaxStrength() + 2 : CREAT_MAX_STRENGTH);
+        opponent.setMaxDexterity(opponent.getMaxDexterity() + 2 > CREAT_MAX_DEXTERITY ? opponent.getMaxDexterity() + 2 : CREAT_MAX_DEXTERITY);
+        opponent.setMaxHp(opponent.calculateHp());
+    }
+    return opponent;
 }

@@ -88,6 +88,8 @@ const string GAME_EXIT = EXIT_MSG;
 
 const string OPPONENT_INFO = "A wild opponent appears. It is: ";
 const string OPPONENT_NAME_PLACEHOLDER = "Oppomon!";
+const string FIGHT_OPPONENT_INFO = "Your opponent: ";
+const string FIGHT_YOUR_INFO = "Your creature: ";
 const string FIGHT_VICTORY = "You have won with ";
 const string FIGHT_LOST = "You have been defeated by ";
 
