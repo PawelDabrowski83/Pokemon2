@@ -93,7 +93,7 @@ public:
 	virtual void printInfo() const;
 	virtual void printShort() const;
 
-	bool attack(const FightingCreature&) const;
+	bool strike(const FightingCreature&) const;
 	int calculateHit(const FightingCreature&) const;
 	int compareElementWith(const FightingCreature&) const;
 	void takeHarm(const int);

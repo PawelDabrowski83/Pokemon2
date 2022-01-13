@@ -201,7 +201,7 @@ void FightingCreature::printShort() const {
 	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << " XP: " << xp << " Lvl: " << curLevel << endl;
 }
 
-bool FightingCreature::attack(const FightingCreature& other) const {
+bool FightingCreature::strike(const FightingCreature& other) const {
 	int bonusToHit = 0;
 	int bonusToAvoid = 0;
 	if (compareElementWith(other) == 1) {
