@@ -341,12 +341,12 @@ FightingCreature getYourOpponent(const int gameRound) {
     if (gameRound < 2) {
         opponent.setMaxStrength(opponent.getMaxStrength() - 2 < CREAT_MIN_STRENGTH ? CREAT_MIN_STRENGTH : opponent.getMaxStrength() - 2);
         opponent.setMaxDexterity(opponent.getMaxDexterity() - 2 < CREAT_MIN_DEXTERITY ? CREAT_MIN_DEXTERITY: opponent.getMaxDexterity() - 2);
-        opponent.setMaxHp(opponent.calculateHp());
+        
     }
     else {
-        opponent.setMaxStrength(opponent.getMaxStrength() + 2 > CREAT_MAX_STRENGTH ? opponent.getMaxStrength() + 2 : CREAT_MAX_STRENGTH);
-        opponent.setMaxDexterity(opponent.getMaxDexterity() + 2 > CREAT_MAX_DEXTERITY ? opponent.getMaxDexterity() + 2 : CREAT_MAX_DEXTERITY);
-        opponent.setMaxHp(opponent.calculateHp());
+        opponent.setMaxStrength(opponent.getMaxStrength() + 2 > CREAT_MAX_STRENGTH ? CREAT_MAX_STRENGTH : opponent.getMaxStrength() + 2);
+        opponent.setMaxDexterity(opponent.getMaxDexterity() + 2 > CREAT_MAX_DEXTERITY ? CREAT_MAX_DEXTERITY : opponent.getMaxDexterity() + 2);
     }
+    opponent.setMaxHp(opponent.calculateHp());
     return opponent;
 }
