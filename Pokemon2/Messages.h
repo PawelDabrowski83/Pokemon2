@@ -92,8 +92,18 @@ const string FIGHT_OPPONENT_INFO = "Your opponent: ";
 const string FIGHT_YOUR_INFO = "Your creature: ";
 const string FIGHT_VICTORY = "You have won with ";
 const string FIGHT_LOST = "You have been defeated by ";
+const char* FIGHT_MENU = R""""(
+During the fight you have access to all of your creatures, but only one is current fighter. You can pick one at a start of fight and change them
+during combat on your turn. Changing creature means giving up your round, so opponent will get one free attack on you.
+After your creature is defeated you can switch to another one. If you don't have more creatures in your team, you lose.
+[ A ] = Attack your opponent.
+[ P ] = Pass turn and wait for attack.
 
-
+[ R ] = Change creature / Review available creatures in your team.
+[ M ] = Learn more about your opponent.
+[ X ] = Exit without saving.
+)"""";
+const string FIGHT_ROUND_NO = "Fight round number: ";
 
 const string WINNING = "Grats! You have won and now you are joining Grand Tournament's Hall of Champions.";
 const string GENERAL_PLACEHOLDER = "This function is under development and may be accesible in future releases.";
