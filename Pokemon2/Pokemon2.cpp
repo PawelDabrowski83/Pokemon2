@@ -143,6 +143,7 @@ int main()
     cout << START_TOURNAMENT << endl;
     
     int gameRound = 0;
+    int fightRound = 0;
     int defeatedOpponents = 0;
 
     gameRound++;
@@ -150,6 +151,7 @@ int main()
         bool gameRoundFinished = false;
         while (!gameRoundFinished) {
             FightingCreature opponent = { FightingCreature(FIRE) };
+            FightingCreature* yourCreature = YOUR_TEAM[0];
             bool actionFilled = false;
             while (!actionFilled) {
                 pressEnter();
@@ -170,12 +172,18 @@ int main()
                 }
 
                 // GAME options
+                bool fightInProgress = false;
                 switch (input) {
                 case 'E': // start fight
                     clearScreen();
-                    bool fightInProgress = true;
+                    fightInProgress = true;
                     opponent = getYourOpponent(gameRound);
                     while (fightInProgress) {
+                        cout << FIGHT_ROUND_NO << fightRound << endl;
+                        cout << FIGHT_YOUR_INFO << endl;
+                        yourCreature->printShort();
+                        cout << FIGHT_OPPONENT_INFO << endl;
+                        opponent.printShort();
                         bool activePlayer = true;
                         while (activePlayer) {
                             cout << FIGHT_MENU << endl;
@@ -189,7 +197,9 @@ int main()
                             }
 
                             switch (fightInput) {
-                                case 'A':
+                                case 'A': // attack on creature
+                                    yourCreature->attack(opponent);
+                                    activePlayer = false;
                                     break;
                                 case 'P':
                                     break;
@@ -198,10 +208,19 @@ int main()
                                 case 'M':
                                     break;
                                 case 'X':
-                                    break;
+                                    clearScreen();
+                                    cout << EXIT_MSG << endl;
+                                    return EXIT_SUCCESS;
                                 default:
                                     break;
                             }
+                        }
+                        if (opponent.getCurHp() > 0) {
+                            opponent.attack(*yourCreature);
+                        }
+                        else {
+                            cout << FIGHT_VICTORY << opponent.getName() << endl;
+                            fightInProgress = false;
                         }
                     }
                     cout << GAME_ENTER_STAGE << endl;
