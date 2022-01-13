@@ -272,3 +272,11 @@ int FightingCreature::calculateMaxLevel() const {
 		return (xp - 200) / 150;
 	}
 }
+
+void FightingCreature::prepare() {
+	curStrength = getMaxStrength();
+	curDexterity = getMaxDexterity();
+	maxHp = calculateHp();
+	curHp = getMaxHp();
+	curLevel = getMaxLevel();
+}

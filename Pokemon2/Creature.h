@@ -100,4 +100,5 @@ public:
 	void takeHarm(const int);
 	int calculateXp(const FightingCreature&) const;
 	int calculateMaxLevel() const;
+	virtual void prepare();
 };

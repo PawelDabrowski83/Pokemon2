@@ -152,6 +152,12 @@ int main()
         while (!gameRoundFinished) {
             FightingCreature opponent = { FightingCreature(FIRE) };
             FightingCreature* yourCreature = YOUR_TEAM[0];
+            /*
+                prepare team
+            */
+            for (int i = 0; i < YOUR_TEAM.size(); i++) {
+                YOUR_TEAM[0]->prepare();
+            }
             bool actionFilled = false;
             while (!actionFilled) {
                 pressEnter();
@@ -178,6 +184,7 @@ int main()
                     clearScreen();
                     fightInProgress = true;
                     opponent = getYourOpponent(gameRound);
+                    opponent.prepare();
                     while (fightInProgress) {
                         cout << FIGHT_ROUND_NO << fightRound << endl;
                         cout << FIGHT_YOUR_INFO << endl;
@@ -332,8 +339,8 @@ FightingCreature getYourOpponent(const int gameRound) {
     int random = getRandomFrom(0, CREAT_UNIVERSE.size());
     FightingCreature opponent = CREAT_UNIVERSE[random];
     if (gameRound < 2) {
-        opponent.setMaxStrength(opponent.getMaxStrength() - 2 < CREAT_MIN_STRENGTH ? opponent.getMaxStrength() - 2 : CREAT_MIN_STRENGTH);
-        opponent.setMaxDexterity(opponent.getMaxDexterity() - 2 < CREAT_MIN_DEXTERITY ? opponent.getMaxDexterity() - 2 : CREAT_MIN_DEXTERITY);
+        opponent.setMaxStrength(opponent.getMaxStrength() - 2 < CREAT_MIN_STRENGTH ? CREAT_MIN_STRENGTH : opponent.getMaxStrength() - 2);
+        opponent.setMaxDexterity(opponent.getMaxDexterity() - 2 < CREAT_MIN_DEXTERITY ? CREAT_MIN_DEXTERITY: opponent.getMaxDexterity() - 2);
         opponent.setMaxHp(opponent.calculateHp());
     }
     else {
