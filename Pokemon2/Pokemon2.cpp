@@ -44,7 +44,7 @@ int main()
     */
     cout << playerName << X_TIME_TO_CREATE_TEAM << endl;
     bool selectStep = false;
-    char input;
+    char input, fightInput;
     string longInput;
     
     while (!selectStep) { // loop for SELECT menu
@@ -149,7 +149,7 @@ int main()
     while (gameRound <= 4) {
         bool gameRoundFinished = false;
         while (!gameRoundFinished) {
-            FightingCreature opponent = getYourOpponent(gameRound);
+            FightingCreature opponent = { FightingCreature(FIRE) };
             bool actionFilled = false;
             while (!actionFilled) {
                 pressEnter();
@@ -174,10 +174,34 @@ int main()
                 case 'E': // start fight
                     clearScreen();
                     bool fightInProgress = true;
+                    opponent = getYourOpponent(gameRound);
                     while (fightInProgress) {
                         bool activePlayer = true;
                         while (activePlayer) {
+                            cout << FIGHT_MENU << endl;
+                            fightInput = readChar();
+                            // check for invalid input
+                            while ( fightInput != 'A' and fightInput != 'P' and fightInput != 'R' and
+                                    fightInput != 'M' and fightInput != 'X') {
+                                cout << ENTER_VALID_COMMAND << endl;
+                                cout << FIGHT_MENU << endl;
+                                fightInput = readChar();
+                            }
 
+                            switch (fightInput) {
+                                case 'A':
+                                    break;
+                                case 'P':
+                                    break;
+                                case 'R':
+                                    break;
+                                case 'M':
+                                    break;
+                                case 'X':
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                     cout << GAME_ENTER_STAGE << endl;
