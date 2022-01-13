@@ -198,7 +198,7 @@ void FightingCreature::printInfo() const {
 }
 
 void FightingCreature::printShort() const {
-	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << maxHp << " XP: " << xp << " Lvl: " << curLevel << endl;
+	cout << "[ " << id << " ] = " << name << " (" << getElementTxt(type) << ") STR: " << maxStrength << " DEX: " << maxDexterity << " HP: " << curHp << "/" << maxHp << " XP: " << xp << " Lvl: " << curLevel << endl;
 }
 
 void FightingCreature::attack(FightingCreature& other) const{
