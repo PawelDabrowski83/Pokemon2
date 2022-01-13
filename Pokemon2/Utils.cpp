@@ -116,3 +116,51 @@ int dice(const int val, const int repeat) {
     }
     return sum;
 }
+
+int compareMix(const EnumElement& source, const EnumElement& target) {
+    switch (source) {
+    case FIRE:
+        switch (target) {
+        case ICE:       case STEEL:     return 1;
+        case WATER:     case EARTH:     return -1;
+        default:        return 0;
+        }
+        break;
+    case WATER:
+        switch (target) {
+        case WATER:     return -1;
+        case EARTH:     case FIRE:      return 1;
+        default:        return 0;
+        }
+        break;
+    case AIR:
+        switch (target) {
+        case ICE:       return 1;
+        case EARTH:     case STEEL:     return -1;
+        default:        return 0;
+        }
+        break;
+    case EARTH:
+        switch (target) {
+        case AIR:       return -1;
+        case FIRE:      case ICE:       case STEEL:     return 1;
+        default:        return 0;
+        }
+        break;
+    case ICE:
+        switch (target) {
+        case EARTH:     return 1;
+        case WATER:     case FIRE:      case ICE:       return -1;
+        default:        return 0;
+        }
+        break;
+    case STEEL:
+        switch (target) {
+        case FIRE:      case STEEL:     return -1;
+        case WATER:     case AIR:       return 1;
+        default:        return 0;
+        }
+        break;
+    default: return 0;
+    }
+}
